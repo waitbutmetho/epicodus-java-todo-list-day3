@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-import org.junit.*;
-import static org.junit.Assert.*;
-
 public class Category {
 	private static ArrayList<Category> instances = new ArrayList<Category>();
 
@@ -14,7 +11,7 @@ public class Category {
 		mName = name;
 		instances.add(this);
 		mId = instances.size();
-		mTasks = new ArrayList<Tasks>();
+		mTasks = new ArrayList<Task>();
 	}
 
 	public String getName() {
@@ -25,12 +22,12 @@ public class Category {
 		return mId;
 	}
 
-		public void addTask (Task task) {
-		mTasks.add(task);
+	public ArrayList<Task> getTasks() {
+		return mTasks;
 	}
 
-	public ArrayList<Task>() getTasks() {
-		return mTasks;
+		public void addTask (Task task) {
+		mTasks.add(task);
 	}
 
 	public static ArrayList<Category> all() {

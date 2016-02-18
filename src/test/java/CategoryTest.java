@@ -8,14 +8,14 @@ public class CategoryTest {
 	@Test
 	public void getName_returnsName_true() {
 		Category testCategory = new Category("Home");
-		assertsEquals("Home", testCategory.getName());
+		assertEquals("Home", testCategory.getName());
 	}
 
 	@Test
 	public void getId_returnsCategoryId() {
 		Category testCategory = new Category("Home");
 		assertTrue(Category.all().size() == testCategory.getId());
-	} 
+	}
 
 	@Test
 	public void getTasks_initiallyReturnsEmptyArrayList() {
@@ -26,7 +26,7 @@ public class CategoryTest {
 	@Test
 	public void all_returnsAllInstanceOfTask_true() {
 		Category firstCategory = new Category("Home");
-		Category secondCategory = mew Category("Home");
+		Category secondCategory = new Category("Home");
 		assertTrue(Category.all().contains(firstCategory));
 		assertTrue(Category.all().contains(firstCategory));
 	}
@@ -39,8 +39,16 @@ public class CategoryTest {
 	}
 
 	@Test
-	public void find_returnsCategoryWithSameId() {
-		Category testCategory = new Category("Home");
-		assertEquals(Category.find(testCategory.getId()), contains(getTask));
-	}
+  public void find_returnsCategoryWithSameId() {
+    Category testCategory = new Category("Home");
+    assertEquals(Category.find(testCategory.getId()), testCategory);
+  }
+
+  @Test
+  public void addTask_addsTaskToList() {
+    Category testCategory = new Category("Bob's Used Tasks");
+    Task testTask = new Task("Mow the lawn");
+    testCategory.addTask(testTask);
+    assertTrue(testCategory.getTasks().contains(testTask));
+  }
 }

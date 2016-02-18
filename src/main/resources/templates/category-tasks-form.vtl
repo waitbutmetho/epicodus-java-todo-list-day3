@@ -1,8 +1,15 @@
-<h3>Here are all the tasks in this category:</h3>
+category-tasks-form.vtl
 
-#foreach($task in $tasks)
- <h3>$task.getDescription()</a></h3>
-#end
+<h1>Add a Task to $category.getName() </h1>
 
-<a href="/categories/$category.getId()/tasks/new">Add a new task</a>
-<a href="/">Return to Main Page</a>
+<form action="/tasks" method="post">
+
+  <input id="categoryId" type="hidden" name="categoryId" value="$category.getId()">
+
+  <div class="form-group">
+    <label for="description">Make</label>
+    <input id="description" type="text" name="description" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success" >Add Task</button>
+</form>
